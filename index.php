@@ -1,22 +1,86 @@
-
-<html lang="en">
-	<head>
-		
-		<meta charset="utf-8">
-		<title>lab1</title>
-		<meta name="description" content="MAP202Lab1">
-		<meta name="author" content="inderjeet kaur">
-	</head>
-	<body>
-		
-	</body>
-<?php 
-	echo "<b>inderjeet kaur</b> </br>"; 
-	echo"<body class=\"page_bg\">";
-	echo "hello, today is ";
-	echo date('l, F jS, y'); 
-	echo "</html>";
-	
+<?php
+$films = array(
+            "comedy" => array (
+                            0 => "Pink Panther",
+                           1 => "johnny English",
+                            2 => "Tommy Boy"),
+            "action" => array (
+                            0 => "Die Hard",
+                            1 => "Expendables"),
+            "epic" => array (
+                            0 => "The Lord of the Rings"),
+            "Romance" => array (
+                            0 => "Romeo and Juliet")
+);
+$favorites = array(
+   array(
+       "name" => "Dave Punk",
+       "phone" => "5689741523",
+       "email" => "davepunk@gmail.com",
+   ),
+   array(
+       "name" => "Monty Smith",
+       "phone" => "2584369721",
+       "email" => "montysmith@gmail.com",
+   ),
+   array(
+       "name" => "John Flinch",
+       "phone" => "9875147536",
+       "email" => "johnflinch@gmail.com",
+   )
+);
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Map202</title>
+</head>
+
+<body>
+<?php
+echo 'Movie';
+echo '<table border="1">';
+echo '<tr><th>Movies</th><th>Genre</th></tr>';
+foreach( $films as $film=>$values )
+{
+   
+    foreach( $values as $key )
+    {
+echo '<tr>';
+echo '<td>'.$key.'</td>';
+echo '<td>'.$film.'</td>';
+echo '</tr>';
+    }
+
+
+   
+}
+
+
+echo '</table>';
+echo '<br>';
+echo 'Favorites';
+echo '<table border="1">';
+echo '<tr><th>Name</th><th>Phone</th><th>Email</th></tr>';
+foreach( $favorites as $items )
+{
+    echo '<tr>';
+    foreach( $items as $key=>$values )
+    {
+
+echo '<td>'.$values.'</td>';
+
+    }
+echo '</tr>';
+
+   
+}
+echo '</table>';
+
+?>
+
 </body>
-	</html>
+
+</html>
