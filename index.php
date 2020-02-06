@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<body>
+<?php 
 
-<?php
-echo "Login page";
-?>
-<br>
-<br>
-<a href="login.php">Employee Information FORM.</a>
-</body>
-</html>
+require_once 'app/init.php';
+
+$app = new App;
+
+
+
