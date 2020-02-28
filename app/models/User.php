@@ -17,7 +17,7 @@ class User {
          */
 		 
 		$db = db_connect();
-        $statement = $db->prepare("select * from user
+        $statement = $db->prepare("select * from users
                                 WHERE username = :name;
                 ");
         $statement->bindValue(':name', $username);
