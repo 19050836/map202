@@ -15,7 +15,7 @@ class User {
          * if username and password good then
          * $this->auth = true;
          */
-		 
+		 try{
 		$db = db_connect();
         $statement = $db->prepare("select * from users
                                 WHERE username = :name;
@@ -38,15 +38,38 @@ class User {
 			header('Location: /login');
 			die;
 		}
+		 }
+		catch (PDOException $e) {
+		echo "Error!: " . $e->getMessage() . "<br/>";
+ 		die();
+ 	}
+	
     }
 	
-	public function register ($username, $password) {
+	public function registerUser ($username, $password) {
 		$db = db_connect();
-        $statement = $db->prepare("INSERT INTO users (name)"
-                . " VALUES (:name); ");
-
+		$statement = $db->prepare("select * from users
+                                WHERE username = :name;
+                ");
+	
         $statement->bindValue(':name', $username);
         $statement->execute();
+        $rows = $statement->fetch(PDO::FETCH_ASSOC);
+		
+		if(	$rows['username']!=null)
+		{
+			return false;
+		}
+		else
+		{
+        $statement = $db->prepare("INSERT INTO users (username,password)"
+                . " VALUES (:name,:password); ");
+
+        $statement->bindValue(':name', $username);
+		$statement->bindValue(':password', $password);
+        $statement->execute();
+		return true;
+		}
 
 	}
 

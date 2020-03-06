@@ -5,9 +5,9 @@
             <div class="col-lg-12">
                 <h1>You are not logged in!</h1>
 
-                <!--<p class="lead"><a href="/login/register"> Sign up here </a></p>-->
+                <p class="lead"><a href="login/register"> Sign up here </a></p>
             </div>
-        </div>
+		</div>
     </div>
 	<?php
 		if ($_SESSION['failedAuth']) { ?>
